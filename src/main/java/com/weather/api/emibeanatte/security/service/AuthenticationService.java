@@ -1,5 +1,3 @@
-
-
 package com.weather.api.emibeanatte.security.service;
 
 import com.weather.api.emibeanatte.security.dto.LoginUserDto;
@@ -16,8 +14,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-
 
 @Service
 public class AuthenticationService {
@@ -37,7 +33,7 @@ public class AuthenticationService {
     public User signup(RegisterUserDto registerUser) {
         Optional<Role> role = roleRepository.findByRoleName(RoleName.USER);
 
-        if (!role.isPresent()) {
+        if (role.isEmpty()) {
             throw new RuntimeException("Role user not found");
         }
 
@@ -58,5 +54,5 @@ public class AuthenticationService {
         return userRepository.findByUsername(loginUser.getUsername())
                 .orElseThrow(NoSuchElementException::new);
     }
-    
+
 }
