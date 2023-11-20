@@ -110,7 +110,7 @@ Para acceder a los metodos detallados previamente y realizar pruebas de los endp
 1. Solicitar el clima actual por nombre de ciudad:
 
   - Solicitud:
-      `http://localhost:8080/weather/current/?q={nombre-de-ciudad}&appid={tu-API-key}`
+      `http://localhost:8080/weather/current/?city={nombre-de-ciudad}?apiKey={tu-API-key}`
 
   - Respuesta:
 
@@ -135,7 +135,7 @@ Para acceder a los metodos detallados previamente y realizar pruebas de los endp
 2. Solicitar un pronostico del tiempo de 5 dias para una ciudad designada:
 
   - Solicitud:
-      `http://localhost:8080/weather/forecast/?q={nombre-de-ciudad}&appid={tu-API-key}`
+      `http://localhost:8080/weather/forecast/?city={nombre-de-ciudad}?apiKey={tu-API-key}`
 
   - Respuesta:
 
@@ -312,7 +312,7 @@ Para acceder a los metodos detallados previamente y realizar pruebas de los endp
 3. Solicitar datos de contaminacion del aire actual para una ciudad seleccionada:
 
    - Ruta:
-      `http://localhost:8080/weather/air_pollution/?q={nombre-de-ciudad}&appid={tu-API-key}`
+      `http://localhost:8080/weather/air_pollution/?city={nombre-de-ciudad}?apiKey={tu-API-key}`
 
    - Respuesta:
 
