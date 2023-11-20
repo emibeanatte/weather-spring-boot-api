@@ -75,7 +75,7 @@ docker-compose up
   - Ruta: `/weather/current/`
 
 - ### Obtener un pronostico del tiempo de 5 dias para una ciudad designada (GET)
-  - Ruta: `/weather/current/`
+  - Ruta: `/weather/forecast/`
  
 - ### Acceder a datos de contaminacion del aire actual para una ciudad seleccionada (GET)
   - Ruta: `/weather/air_pollution/`
