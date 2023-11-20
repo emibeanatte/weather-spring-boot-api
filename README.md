@@ -4,11 +4,11 @@ Una API  construida con Spring Boot que obtiene y entrega datos meteorologicos d
 
 <h2>Requerimientos</h2>
 
-Before getting started, make sure you have the following prerequisites installed on your system:
+Antes de comenzar, asegúrate de tener instalados en tu sistema los siguientes requisitos previos:
 
 
-  <li><a href="https://www.docker.com/get-started/"> Docker </a> - Docker para contenerizacion. </li>
-  <li><a href= "https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html"> JDK 17 </a> - Java 17 para compilar y configurar el proyecto..</li>
+  <li><a href="https://www.docker.com/get-started/"> Docker </a> - Docker Desktop para contenerizacion. </li>
+  <li><a href= "https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html"> JDK 17 </a> - Java 17 para compilar y configurar el proyecto.</li>
   <li><a href="https://openweathermap.org/api"> API Key </a> - Una api key de Open Weather Map, para acceder a los datos meteorologicos. </li>
   <li>Un entorno de desarrollo integrado como Visual Studio Code o IntelliJ IDEA para trabajar con el proyecto Spring Boot.</li>
 
@@ -38,7 +38,7 @@ docker-compose up
 ```
 
 > [!IMPORTANT]
-> Asegúrate de estar en el directorio raíz de tu proyecto Spring Boot al ejecutar estos comandos. Con ellos, podrás ejecutar fácilmente la construcción y ejecución de tu aplicación. 
+> Asegúrate de estar en el directorio raíz de tu proyecto Spring Boot al ejecutar estos comandos. Con ellos, podrás ejecutar fácilmente la construcción y ejecución de la aplicación. 
 
 </ol>
 
