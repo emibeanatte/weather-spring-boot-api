@@ -11,4 +11,5 @@ public interface WeatherService {
     ForecastDto getForecastWeather(String city, String apiKey);
 
     AirPollutionDto getAirPollution(double lat, double lon, String apiKey);
+
 }

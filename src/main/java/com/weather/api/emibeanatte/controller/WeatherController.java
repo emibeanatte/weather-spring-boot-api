@@ -12,8 +12,10 @@ import com.weather.api.emibeanatte.service.QueryRecordService;
 import com.weather.api.emibeanatte.service.WeatherServiceImpl;
 
 import io.swagger.v3.oas.annotations.Operation;
+
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
+
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -24,7 +26,6 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
@@ -63,7 +64,6 @@ public class WeatherController {
     @Cacheable(value = "weatherCache")
     @Parameter(name = "Authorization", required = true, description = "Authentication token (Bearer <token>)", in = ParameterIn.HEADER)
     @GetMapping(value = "/current/", produces = MediaType.APPLICATION_JSON_VALUE)
-    @PreAuthorize("isAuthenticated()")
     public WeatherDto getWeatherByCityName(@RequestParam(required = true) String city, @RequestParam String apiKey, @AuthenticationPrincipal UserDetails userDetails) {
 
         WeatherDto result = weatherServiceImpl.getCurrentWeather(city, apiKey);
