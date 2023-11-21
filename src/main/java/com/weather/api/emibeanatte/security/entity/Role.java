@@ -2,28 +2,33 @@ package com.weather.api.emibeanatte.security.entity;
 
 import com.weather.api.emibeanatte.security.enums.RoleName;
 import java.io.Serializable;
-import javax.persistence.*;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
 @Entity
-@Table(name = "roles")
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class Role implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @NotNull
+    @Column(nullable = false)
+    private Long id;
+    @Column(unique = true, nullable = false)
     @Enumerated(EnumType.STRING)
     private RoleName roleName;
 
@@ -33,6 +38,5 @@ public class Role implements Serializable {
 
     public String getAuthority(){
         return roleName.name();
-    }
-       
+    }      
 }
