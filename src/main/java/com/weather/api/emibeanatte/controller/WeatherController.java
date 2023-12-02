@@ -62,7 +62,6 @@ public class WeatherController {
         @ApiResponse(responseCode = "500", description = "Internal Server Error.",
                 content = @Content)})
     @Cacheable(value = "weatherCache")
-    @Parameter(name = "Authorization", required = true, description = "Authentication token (Bearer <token>)", in = ParameterIn.HEADER)
     @GetMapping(value = "/current/", produces = MediaType.APPLICATION_JSON_VALUE)
     public WeatherDto getWeatherByCityName(@RequestParam(required = true) String city, @RequestParam String apiKey, @AuthenticationPrincipal UserDetails userDetails) {
 
@@ -103,7 +102,6 @@ public class WeatherController {
                 content = @Content),
         @ApiResponse(responseCode = "500", description = "Internal Server Error.",
                 content = @Content)})
-    @Parameter(name = "Authorization", required = true, description = "Authentication token (Bearer <token>)", in = ParameterIn.HEADER)
     @Cacheable(value = "forecastCache")
     @GetMapping(value = "/forecast/", produces = MediaType.APPLICATION_JSON_VALUE)
     public ForecastDto getForecastByCityName(@RequestParam(required = true) String city, @RequestParam String apiKey, @AuthenticationPrincipal UserDetails userDetails) {
@@ -144,7 +142,6 @@ public class WeatherController {
         @ApiResponse(responseCode = "500", description = "Internal Server Error.",
                 content = @Content)})
     @GetMapping(value = "/air_pollution/", produces = MediaType.APPLICATION_JSON_VALUE)
-    @Parameter(name = "Authorization", required = true, description = "Authentication token (Bearer <token>)", in = ParameterIn.HEADER)
     @Cacheable(value = "airPollutionCache")
     public AirPollutionDto getAirPollutionByCityName(@RequestParam(required = true) String city, @RequestParam String apiKey, @AuthenticationPrincipal UserDetails userDetails) {
         
