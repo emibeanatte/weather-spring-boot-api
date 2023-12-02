@@ -1,6 +1,5 @@
 package com.weather.api.emibeanatte.service;
 
-
 import com.weather.api.emibeanatte.dto.AirPollutionDto;
 import com.weather.api.emibeanatte.dto.CoordsDto;
 import com.weather.api.emibeanatte.dto.ForecastDto;
@@ -10,10 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.web.server.ResponseStatusException;
-
 
 import com.weather.api.emibeanatte.security.config.ApplicationConfig;
 
@@ -28,7 +23,6 @@ import java.util.Set;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
-
 @Service
 @Import(ApplicationConfig.class)
 public class WeatherServiceImpl implements WeatherService {
@@ -37,7 +31,6 @@ public class WeatherServiceImpl implements WeatherService {
     private static final String FORECAST_API_URL = "http://api.openweathermap.org/data/2.5/forecast";
     private static final String AIR_POLLUTION_API_URL = "http://api.openweathermap.org/data/2.5/air_pollution";
     private static final String GEOCODING_API_URL = "http://api.openweathermap.org/geo/1.0/direct";
-
 
     private final RestTemplate restTemplate;
 
@@ -93,7 +86,6 @@ public class WeatherServiceImpl implements WeatherService {
             double lat = response[0].getLat();
             double lon = response[0].getLon();
 
-
             AirPollutionDto airPollutionDto = getAirPollution(lat, lon, apiKey);
 
             return airPollutionDto;
@@ -101,7 +93,6 @@ public class WeatherServiceImpl implements WeatherService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No coordinates data found for the city provided");
         }
     }
-
 
     private String weatherUrl(String city, String apiKey) {
         if (!apiKey.isEmpty() && apiKey != null) {
@@ -124,7 +115,7 @@ public class WeatherServiceImpl implements WeatherService {
             return String.format(AIR_POLLUTION_API_URL.concat("?lat=%s").concat("&lon=%s").concat("&appid=%s"), lat, lon, apiKey);
         } else {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Invalid Api Key.");
-        } 
+        }
     }
 
     private String geocodeUrl(String city, String apiKey) {
